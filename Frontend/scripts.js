@@ -16,19 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    
     async function fetchMessages() {
         try {
-            const response = await fetch('/api/messages');
+            const response = await fetch('/api/biscuits');
             const messages = await response.json();
             messages.forEach(displayMessage);
         } catch (error) {
-            console.error('Error fetching messages:', error);
+            console.error('Error fetching biscuits:', error);
         }
     }
 
     async function addMessage(text) {
         try {
-            const response = await fetch('/api/messages', {
+            const response = await fetch('/api/biscuits', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,4 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         listItem.textContent = message.text;
         messageList.prepend(listItem);
     }
+
+
 });
